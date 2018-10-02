@@ -82,7 +82,7 @@ protected:
 
 uint FractionTest::_testScore = 0;
 
-void _testFractionOutput(int32_t i1, int32_t i2, const std::string &expected) {
+void _testFractionOutput(int32_t i1, int32_t i2, const std::string &expected, uint &score, uint points) {
     // This can be an ofstream as well or any other ostream
     std::stringstream buffer;
 
@@ -94,6 +94,8 @@ void _testFractionOutput(int32_t i1, int32_t i2, const std::string &expected) {
     fraction.output();
     std::cout.rdbuf(sbuf);
     ASSERT_EQ(expected, buffer.str());
+
+    score += points;
 }
 
 TEST_F(FractionTest, Basic) {
@@ -106,12 +108,9 @@ TEST_F(FractionTest, Basic) {
 
     int32_t gcd = gcdDistribution(generator);
 
-    _testFractionOutput(gcd * 45, gcd * 32, "45 / 32");
-    _testScore += 6;
-    _testFractionOutput(gcd *  1, gcd *  3, "1 / 3");
-    _testScore += 6;
-    _testFractionOutput(gcd *  9, gcd * 17, "9 / 17");
-    _testScore += 6;
+    _testFractionOutput(gcd * 45, gcd * 32, "45 / 32", _testScore, 6);
+    _testFractionOutput(gcd *  1, gcd *  3, "1 / 3", _testScore, 6);
+    _testFractionOutput(gcd *  9, gcd * 17, "9 / 17", _testScore, 6);
 }
 
 TEST_F(FractionTest, TestZeroDenominator) {
@@ -119,11 +118,9 @@ TEST_F(FractionTest, TestZeroDenominator) {
     Fraction f(0, 0);
     ASSERT_NO_DEATH(f.output(), "");
 
-    _testFractionOutput(0, 0, "NAN");
-    _testFractionOutput(0, 1, "0");
-    _testFractionOutput(1, 0, "INF");
-
-    _testScore += 2;
+    _testFractionOutput(0, 0, "NAN", _testScore, 1);
+    _testFractionOutput(0, 1, "0", _testScore, 1);
+    _testFractionOutput(1, 0, "INF", _testScore, 0);
 }
 
 }
