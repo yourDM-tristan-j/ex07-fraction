@@ -13,8 +13,18 @@ the forked project when you clone it in CLion.
 
 ### Requirements of this project
 
-This project is based on the programming assignment 5 from Chapter 6 on page 272 of _Absolute C++_(5th Edition). In 
-it you will create a class called Fraction (in the namespace `edu::sbcc::cs140`). This class
+This project is based on a programming assignment from _Absolute C++_(5th Edition). 
+
+Define a class for a type called Fraction . This class is used to represent a ratio
+of two integers. Include mutator functions that allow the user to set the numera-
+tor and the denominator. Also include a member function that returns the value
+of the numerator divided by the denominator as a double. Include an additional
+member function that outputs the value of the fraction reduced to lowest terms.
+For example, instead of outputting 20/60 the function should output 1/3. This will
+require finding the greatest common divisor for the numerator and denominator,
+and then dividing both by that number. Embed your class in a test program.
+
+In this assignment you will create a class called Fraction (in the namespace `edu::vcccd::vc::csv13333333333`). This class
 will hold the numerator and denominator is lowest terms. For example if the 
 constructor is passed 20 and 60, then the numerator and denominator member values
 should be 1 and 3 respectively. You can reduce them by finding their [GCD](https://en.wikipedia.org/wiki/Greatest_common_divisor) (greatest common devisor) using
@@ -77,7 +87,7 @@ For more information on `const`-correctness see the book and this [article](http
 ### Writing the code for this Project
 
 There are only three requirements for creating the code for this project correctly. One,
-be sure that you create a class named `Fraction` in the namespace `edu::sbcc::cs140` with
+be sure that you create a class named `Fraction` in the namespace `edu::vcccd::vc::csv13` with
 the give interface from above. Two, you can put your implementation in a file with the 
 name of your choice as long as it uses the `.cc` extension, and is in the `src` directory.
 Three, you can put you class definition in a file called, exactly, `fraction.h`, in the `include` directory.
