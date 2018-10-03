@@ -45,9 +45,7 @@
 
 namespace {
 
-using edu::sbcc::cs140::Fraction;
-
-// Tests edu::sbcc:cs140::String.
+using edu::vcccd::vc::csv13::Fraction;
 
 using std::string;
 
